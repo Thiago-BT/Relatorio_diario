@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Painel • 2B Ativos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="assets/app.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="back" href="index.html">Voltar</a>
+
+      <div class="topbar__title">
+        <span class="badge badge--2b">2B Ativos</span>
+      </div>
+
+      <button class="btn btn--2b" id="btnPdf2b">Gerar PDF</button>
+    </header>
+
+    <section class="kpis">
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Casos subidos</div>
+        <div class="kpi__value" id="sum-casos">0</div>
+      </div>
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Testes positivos</div>
+        <div class="kpi__value" id="sum-positivos">0</div>
+      </div>
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Restritos do dia</div>
+        <div class="kpi__value" id="sum-restrito">0</div>
+      </div>
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Aptos negociação</div>
+        <div class="kpi__value" id="sum-aptos">0</div>
+      </div>
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Aguardando retorno</div>
+        <div class="kpi__value" id="sum-aguardando">0</div>
+      </div>
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Reuniões agendadas</div>
+        <div class="kpi__value" id="sum-reunioes_agendadas">0</div>
+      </div>
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Reuniões realizadas</div>
+        <div class="kpi__value" id="sum-reunioes_realizadas">0</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card__head">
+        <h2>Negociadores</h2>
+        <div class="card__actions">
+          <button class="btn btn--ghost" id="btnClear2b" type="button">Limpar tudo</button>
+          <span class="muted">Salva automaticamente</span>
+        </div>
+      </div>
+
+      <div class="tableWrap">
+        <table class="modernTable">
+          <thead>
+            <tr>
+              <th>Negociador</th>
+              <th>Casos</th>
+              <th>Positivos</th>
+              <th>Restrito</th>
+              <th>Aptos</th>
+              <th>Aguardando</th>
+              <th>Agendadas</th>
+              <th>Realizadas</th>
+            </tr>
+          </thead>
+          <tbody id="tbody2b"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======= TEMPLATE PDF (2B) ======= -->
+    <section id="pdf2b" class="pdfRoot pdfRoot--2b" style="display:none">
+      <div class="pdfHeader pdfHeader--2b">
+        <div class="pdfBrand">
+          <img id="pdf2b-logo" class="pdfBrandLogo" alt="Logo 2B" />
+          <div>
+            <div class="pdfBrand__name">2B Ativos</div>
+            <div class="pdfBrand__sub">Relatório diário de indicadores</div>
+          </div>
+        </div>
+
+        <div class="pdfMeta">
+          <div class="pdfMeta__label">Data</div>
+          <div class="pdfMeta__value" id="pdf2b-date"></div>
+        </div>
+      </div>
+
+      <div class="pdfBody">
+        <h2 class="pdfSectionTitle">Total (soma de todos)</h2>
+
+        <div class="pdfSummaryGrid">
+          <div class="pdfStat">
+            <div class="pdfStat__label">Casos subidos</div>
+            <div class="pdfStat__value" id="pdf2b-sum-casos">0</div>
+          </div>
+          <div class="pdfStat">
+            <div class="pdfStat__label">Testes positivos</div>
+            <div class="pdfStat__value" id="pdf2b-sum-positivos">0</div>
+          </div>
+          <div class="pdfStat">
+            <div class="pdfStat__label">Restritos do dia</div>
+            <div class="pdfStat__value" id="pdf2b-sum-restrito">0</div>
+          </div>
+          <div class="pdfStat">
+            <div class="pdfStat__label">Aptos negociação</div>
+            <div class="pdfStat__value" id="pdf2b-sum-aptos">0</div>
+          </div>
+          <div class="pdfStat">
+            <div class="pdfStat__label">Aguardando retorno</div>
+            <div class="pdfStat__value" id="pdf2b-sum-aguardando">0</div>
+          </div>
+          <div class="pdfStat">
+            <div class="pdfStat__label">Reuniões agendadas</div>
+            <div class="pdfStat__value" id="pdf2b-sum-reunioes_agendadas">0</div>
+          </div>
+          <div class="pdfStat">
+            <div class="pdfStat__label">Reuniões realizadas</div>
+            <div class="pdfStat__value" id="pdf2b-sum-reunioes_realizadas">0</div>
+          </div>
+        </div>
+
+        <h2 class="pdfSectionTitle">Detalhado por negociador</h2>
+
+        <div class="pdfTableWrap">
+          <table class="pdfTable">
+            <thead>
+              <tr>
+                <th>Negociador</th>
+                <th>Casos</th>
+                <th>Positivos</th>
+                <th>Restrito</th>
+                <th>Aptos</th>
+                <th>Aguardando</th>
+                <th>Agendadas</th>
+                <th>Realizadas</th>
+              </tr>
+            </thead>
+            <tbody id="pdf2b-tbody"></tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="muted">2B Ativos</span>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+  <script>
+    initPanel({
+      teamKey: "TEAM_2B",
+      theme: "2b",
+      title: "2B Ativos",
+      people: ["Isadora", "Franciele", "Letícia", "Igor", "Eduardo Lozekam"],
+      pdf: {
+        rootId: "pdf2b",
+        filename: "relatorio-2b-ativos.pdf",
+        dateId: "pdf2b-date",
+        logoId: "pdf2b-logo",
+        logoSrc: "assets/logos/2b.png",
+        sumMap: {
+          casos: "pdf2b-sum-casos",
+          positivos: "pdf2b-sum-positivos",
+          restrito: "pdf2b-sum-restrito",
+          aptos: "pdf2b-sum-aptos",
+          aguardando: "pdf2b-sum-aguardando",
+          reunioes_agendadas: "pdf2b-sum-reunioes_agendadas",
+          reunioes_realizadas: "pdf2b-sum-reunioes_realizadas"
+        },
+        tbodyId: "pdf2b-tbody"
+      },
+      ui: {
+        tbodyId: "tbody2b",
+        sumIds: {
+          casos: "sum-casos",
+          positivos: "sum-positivos",
+          restrito: "sum-restrito",
+          aptos: "sum-aptos",
+          aguardando: "sum-aguardando",
+          reunioes_agendadas: "sum-reunioes_agendadas",
+          reunioes_realizadas: "sum-reunioes_realizadas"
+        },
+        btnPdfId: "btnPdf2b",
+        btnClearId: "btnClear2b"
+      }
+    });
+  </script>
+</body>
+</html>
