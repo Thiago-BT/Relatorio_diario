@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
   <link rel="stylesheet" href="assets/app.css" />
 </head>
+
 <body>
   <main class="shell">
     <header class="topbar">
@@ -20,6 +20,7 @@
 
       <div class="topbar__title">
         <span class="badge badge--2b">2B Ativos</span>
+        <h1>Painel de preenchimento</h1>
       </div>
 
       <button class="btn btn--2b" id="btnPdf2b">Gerar PDF</button>
@@ -84,11 +85,10 @@
       </div>
     </section>
 
-    <!-- ======= TEMPLATE PDF (2B) ======= -->
+    <!-- ======= PDF (2B) ======= -->
     <section id="pdf2b" class="pdfRoot pdfRoot--2b" style="display:none">
       <div class="pdfHeader pdfHeader--2b">
         <div class="pdfBrand">
-          <img id="pdf2b-logo" class="pdfBrandLogo" alt="Logo 2B" />
           <div>
             <div class="pdfBrand__name">2B Ativos</div>
             <div class="pdfBrand__sub">Relatório diário de indicadores</div>
@@ -155,11 +155,14 @@
           </table>
         </div>
 
+        <div class="pdfFooter">
+          <span>Gerado automaticamente • 2B Ativos</span>
+        </div>
       </div>
     </section>
 
     <footer class="footer">
-      <span class="muted">2B Ativos</span>
+      <span class="muted">2B Ativos • Tema azul</span>
     </footer>
   </main>
 
@@ -174,8 +177,6 @@
         rootId: "pdf2b",
         filename: "relatorio-2b-ativos.pdf",
         dateId: "pdf2b-date",
-        logoId: "pdf2b-logo",
-        logoSrc: "assets/logos/2b.png",
         sumMap: {
           casos: "pdf2b-sum-casos",
           positivos: "pdf2b-sum-positivos",
