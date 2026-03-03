@@ -20,7 +20,6 @@
 
       <div class="topbar__title">
         <span class="badge badge--2b">2B Ativos</span>
-        <h1>Painel de preenchimento</h1>
       </div>
 
       <button class="btn btn--2b" id="btnPdf2b">Gerar PDF</button>
@@ -34,6 +33,10 @@
       <div class="kpi kpi--2b">
         <div class="kpi__label">TOTAL • Testes positivos</div>
         <div class="kpi__value" id="sum-positivos">0</div>
+      </div>
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Solicitação de proposta</div>
+        <div class="kpi__value" id="sum-solicitacao_proposta">0</div>
       </div>
       <div class="kpi kpi--2b">
         <div class="kpi__label">TOTAL • Restritos do dia</div>
@@ -73,6 +76,7 @@
               <th>Negociador</th>
               <th>Casos</th>
               <th>Positivos</th>
+              <th>Solicitação</th>
               <th>Restrito</th>
               <th>Aptos</th>
               <th>Aguardando</th>
@@ -114,6 +118,10 @@
             <div class="pdfStat__value" id="pdf2b-sum-positivos">0</div>
           </div>
           <div class="pdfStat">
+            <div class="pdfStat__label">Solicitação de proposta</div>
+            <div class="pdfStat__value" id="pdf2b-sum-solicitacao_proposta">0</div>
+          </div>
+          <div class="pdfStat">
             <div class="pdfStat__label">Restritos do dia</div>
             <div class="pdfStat__value" id="pdf2b-sum-restrito">0</div>
           </div>
@@ -144,6 +152,7 @@
                 <th>Negociador</th>
                 <th>Casos</th>
                 <th>Positivos</th>
+                <th>Solicitação</th>
                 <th>Restrito</th>
                 <th>Aptos</th>
                 <th>Aguardando</th>
@@ -155,9 +164,6 @@
           </table>
         </div>
 
-        <div class="pdfFooter">
-          <span>Gerado automaticamente • 2B Ativos</span>
-        </div>
       </div>
     </section>
 
@@ -180,6 +186,7 @@
         sumMap: {
           casos: "pdf2b-sum-casos",
           positivos: "pdf2b-sum-positivos",
+          solicitacao_proposta: "pdf2b-sum-solicitacao_proposta",
           restrito: "pdf2b-sum-restrito",
           aptos: "pdf2b-sum-aptos",
           aguardando: "pdf2b-sum-aguardando",
@@ -193,6 +200,7 @@
         sumIds: {
           casos: "sum-casos",
           positivos: "sum-positivos",
+          solicitacao_proposta: "sum-solicitacao_proposta",
           restrito: "sum-restrito",
           aptos: "sum-aptos",
           aguardando: "sum-aguardando",

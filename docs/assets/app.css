@@ -384,3 +384,19 @@ a{ color:inherit; text-decoration:none; }
 .pdfSummaryGrid{
   grid-template-columns: repeat(4, 1fr);
 }
+/* ===== Diminuir fonte e espaçamento da TABELA do PDF ===== */
+.pdfTable th{
+  font-size: 8px !important;
+  padding: 6px 5px !important;
+}
+
+.pdfTable td{
+  font-size: 9px !important;
+  padding: 6px 5px !important;
+}
+
+/* opcional: evita quebra de linha e ajuda a caber */
+.pdfTable th, 
+.pdfTable td{
+  white-space: nowrap !important;
+}
