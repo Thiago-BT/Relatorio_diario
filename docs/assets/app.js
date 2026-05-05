@@ -13,7 +13,8 @@ function formatDateBR(d = new Date()){
 function defaultRow(){
   return {
     casos:0,
-    positivos:0,
+    positivos_b2b:0,
+    positivos_b2c:0,
     solicitacao_proposta:0,
     restrito:0,
     aptos:0,
@@ -72,7 +73,8 @@ function makeRow(name, data, onChange){
 
   const fields = [
     "casos",
-    "positivos",
+    "positivos_b2b",
+    "positivos_b2c",
     "solicitacao_proposta",
     "restrito",
     "aptos",
@@ -113,7 +115,8 @@ function fillPdf(config, state){
     tr.innerHTML = `
       <td>${person}</td>
       <td>${r.casos}</td>
-      <td>${r.positivos}</td>
+      <td>${r.positivos_b2b}</td>
+      <td>${r.positivos_b2c}</td>
       <td>${r.solicitacao_proposta}</td>
       <td>${r.restrito}</td>
       <td>${r.aptos}</td>

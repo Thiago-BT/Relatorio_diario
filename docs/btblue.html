@@ -31,8 +31,12 @@
         <div class="kpi__value" id="sum-casos">0</div>
       </div>
       <div class="kpi kpi--bt">
-        <div class="kpi__label">TOTAL • Testes positivos</div>
-        <div class="kpi__value" id="sum-positivos">0</div>
+        <div class="kpi__label">TOTAL • Testes positivos B2C</div>
+        <div class="kpi__value" id="sum-positivos-b2c">0</div>
+      </div>
+      <div class="kpi kpi--bt">
+        <div class="kpi__label">TOTAL • Testes positivos B2B</div>
+        <div class="kpi__value" id="sum-positivos-b2b">0</div>
       </div>
       <div class="kpi kpi--bt">
         <div class="kpi__label">TOTAL • Solicitação de proposta</div>
@@ -75,7 +79,8 @@
             <tr>
               <th>Negociador</th>
               <th>Em atendimento</th>
-              <th>Positivos</th>
+              <th>Positivos B2C</th>
+              <th>Positivos B2B</th>
               <th>Solicitação</th>
               <th>Restrito</th>
               <th>Aptos</th>
@@ -114,8 +119,12 @@
             <div class="pdfStat__value" id="pdfBt-sum-casos">0</div>
           </div>
           <div class="pdfStat">
-            <div class="pdfStat__label">Testes positivos</div>
-            <div class="pdfStat__value" id="pdfBt-sum-positivos">0</div>
+            <div class="pdfStat__label">Testes positivos B2C</div>
+            <div class="pdfStat__value" id="pdfBt-sum-positivos-b2c">0</div>
+          </div>
+          <div class="pdfStat">
+            <div class="pdfStat__label">Testes positivos B2B</div>
+            <div class="pdfStat__value" id="pdfBt-sum-positivos-b2b">0</div>
           </div>
           <div class="pdfStat">
             <div class="pdfStat__label">Solicitação de proposta</div>
@@ -151,7 +160,8 @@
               <tr>
                 <th>Negociador</th>
                 <th>Em atendimento</th>
-                <th>Positivos</th>
+                <th>Positivos B2C</th>
+                <th>Positivos B2B</th>
                 <th>Solicitação</th>
                 <th>Restrito</th>
                 <th>Aptos</th>
@@ -184,7 +194,8 @@
         dateId: "pdfBt-date",
         sumMap: {
           casos: "pdfBt-sum-casos",
-          positivos: "pdfBt-sum-positivos",
+          positivos_b2c: "pdfBt-sum-positivos-b2c",
+          positivos_b2b: "pdfBt-sum-positivos-b2b",
           solicitacao_proposta: "pdfBt-sum-solicitacao_proposta",
           restrito: "pdfBt-sum-restrito",
           aptos: "pdfBt-sum-aptos",
@@ -198,7 +209,8 @@
         tbodyId: "tbodyBt",
         sumIds: {
           casos: "sum-casos",
-          positivos: "sum-positivos",
+          positivos_b2c: "sum-positivos-b2c",
+          positivos_b2b: "sum-positivos-b2b",
           solicitacao_proposta: "sum-solicitacao_proposta",
           restrito: "sum-restrito",
           aptos: "sum-aptos",

@@ -31,8 +31,12 @@
         <div class="kpi__value" id="sum-casos">0</div>
       </div>
       <div class="kpi kpi--2b">
-        <div class="kpi__label">TOTAL • Testes positivos</div>
-        <div class="kpi__value" id="sum-positivos">0</div>
+        <div class="kpi__label">TOTAL • Testes positivos B2B</div>
+        <div class="kpi__value" id="sum-positivos-b2b">0</div>
+      </div>
+      <div class="kpi kpi--2b">
+        <div class="kpi__label">TOTAL • Testes positivos B2C</div>
+        <div class="kpi__value" id="sum-positivos-b2c">0</div>
       </div>
       <div class="kpi kpi--2b">
         <div class="kpi__label">TOTAL • Solicitação de proposta</div>
@@ -75,7 +79,8 @@
             <tr>
               <th>Negociador</th>
               <th>Em atendimento</th>
-              <th>Positivos</th>
+              <th>Positivos B2B</th>
+              <th>Positivos B2C</th>
               <th>Solicitação</th>
               <th>Restrito</th>
               <th>Aptos</th>
@@ -114,8 +119,12 @@
             <div class="pdfStat__value" id="pdf2b-sum-casos">0</div>
           </div>
           <div class="pdfStat">
-            <div class="pdfStat__label">Testes positivos</div>
-            <div class="pdfStat__value" id="pdf2b-sum-positivos">0</div>
+            <div class="pdfStat__label">Testes positivos B2B</div>
+            <div class="pdfStat__value" id="pdf2b-sum-positivos-b2b">0</div>
+          </div>
+          <div class="pdfStat">
+            <div class="pdfStat__label">Testes positivos B2C</div>
+            <div class="pdfStat__value" id="pdf2b-sum-positivos-b2c">0</div>
           </div>
           <div class="pdfStat">
             <div class="pdfStat__label">Solicitação de proposta</div>
@@ -151,7 +160,8 @@
               <tr>
                 <th>Negociador</th>
                 <th>Em atendimento</th>
-                <th>Positivos</th>
+                <th>Positivos B2B</th>
+                <th>Positivos B2C</th>
                 <th>Solicitação</th>
                 <th>Restrito</th>
                 <th>Aptos</th>
@@ -175,14 +185,15 @@
       teamKey: "TEAM_2B",
       theme: "2b",
       title: "2B Ativos",
-      people: ["Isadora", "Franciele", "Letícia", "Igor", "Eduardo Lozekam"],
+      people: ["Isadora", "Franciele", "Letícia", "Igor"],
       pdf: {
         rootId: "pdf2b",
         filename: "relatorio-2b-ativos.pdf",
         dateId: "pdf2b-date",
         sumMap: {
           casos: "pdf2b-sum-casos",
-          positivos: "pdf2b-sum-positivos",
+          positivos_b2b: "pdf2b-sum-positivos-b2b",
+          positivos_b2c: "pdf2b-sum-positivos-b2c",
           solicitacao_proposta: "pdf2b-sum-solicitacao_proposta",
           restrito: "pdf2b-sum-restrito",
           aptos: "pdf2b-sum-aptos",
@@ -196,7 +207,8 @@
         tbodyId: "tbody2b",
         sumIds: {
           casos: "sum-casos",
-          positivos: "sum-positivos",
+          positivos_b2b: "sum-positivos-b2b",
+          positivos_b2c: "sum-positivos-b2c",
           solicitacao_proposta: "sum-solicitacao_proposta",
           restrito: "sum-restrito",
           aptos: "sum-aptos",
