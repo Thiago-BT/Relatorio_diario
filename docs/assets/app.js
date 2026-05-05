@@ -19,7 +19,6 @@ function defaultRow(){
     restrito:0,
     aptos:0,
     aguardando:0,
-    reunioes_agendadas:0,
     reunioes_realizadas:0
   };
 }
@@ -79,7 +78,6 @@ function makeRow(name, data, onChange){
     "restrito",
     "aptos",
     "aguardando",
-    "reunioes_agendadas",
     "reunioes_realizadas"
   ];
 
@@ -121,7 +119,6 @@ function fillPdf(config, state){
       <td>${r.restrito}</td>
       <td>${r.aptos}</td>
       <td>${r.aguardando}</td>
-      <td>${r.reunioes_agendadas}</td>
       <td>${r.reunioes_realizadas}</td>
     `;
     tbody.appendChild(tr);
